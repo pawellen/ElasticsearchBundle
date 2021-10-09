@@ -11,7 +11,7 @@
 
 namespace ONGR\ElasticsearchBundle\Mapping;
 
-use Doctrine\Common\Inflector\Inflector;
+use Symfony\Component\String\UnicodeString;
 
 /**
  * Utility for string case transformations.
@@ -27,7 +27,7 @@ class Caser
      */
     public static function camel($string)
     {
-        return Inflector::camelize($string);
+        return (new UnicodeString($string))->camel();
     }
 
     /**

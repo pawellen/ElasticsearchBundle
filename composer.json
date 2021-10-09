@@ -1,6 +1,6 @@
 {
     "name": "pawellen/elasticsearch-bundle",
-    "version": "v7.1.0",
+    "version": "v7.1.1",
     "description": "Elasticsearch bundle for Symfony (fork).",
     "type": "symfony-bundle",
     "homepage": "http://ongr.io",
@@ -23,7 +23,7 @@
         "symfony/property-access": "^4.4|^5.0",
         "doctrine/annotations": "^1.6",
         "doctrine/cache": "^1.7",
-        "doctrine/inflector": "^2.0",
+        "symfony/string": "^5.3",
         "doctrine/collections": "^1.5",
         "monolog/monolog": "^1.24",
         "elasticsearch/elasticsearch": "^7.0",
