@@ -1,6 +1,6 @@
 {
     "name": "pawellen/elasticsearch-bundle",
-    "version": "v7.1.4",
+    "version": "v7.1.5",
     "description": "Elasticsearch bundle for Symfony (fork).",
     "type": "symfony-bundle",
     "homepage": "http://ongr.io",
