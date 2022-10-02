@@ -14,7 +14,7 @@ namespace ONGR\ElasticsearchBundle\Tests\Functional\Command;
 use ONGR\App\Document\DummyDocument;
 use ONGR\ElasticsearchBundle\Command\IndexExportCommand;
 use ONGR\ElasticsearchBundle\Test\AbstractElasticsearchTestCase;
-use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsstream;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -76,18 +76,18 @@ class IndexExportCommandTest extends AbstractElasticsearchTestCase
     public function testIndexExport(array $options, array $expectedResults)
     {
         $this->getIndex(DummyDocument::class);
-        vfsStream::setup('tmp');
+        vfsstream::setup('tmp');
         $this->getCommandTester()->execute(
             array_merge(
                 [
                     'command' => IndexExportCommand::NAME,
-                    'filename' => vfsStream::url('tmp/test.json'),
+                    'filename' => vfsstream::url('tmp/test.json'),
                 ],
                 $options
             )
         );
 
-        $results = $this->parseResult(vfsStream::url('tmp/test.json'), count($expectedResults));
+        $results = $this->parseResult(vfsstream::url('tmp/test.json'), count($expectedResults));
         usort($results, function ($a, $b) {
             return (int)$a['_id'] <=> (int)$b['_id'];
         });

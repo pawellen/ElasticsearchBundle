@@ -12,7 +12,7 @@
 namespace ONGR\ElasticsearchBundle\Tests\Unit\Service\Json;
 
 use ONGR\ElasticsearchBundle\Service\Json\JsonWriter;
-use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsstream;
 
 class JsonWriterTest extends \PHPUnit\Framework\TestCase
 {
@@ -23,7 +23,7 @@ class JsonWriterTest extends \PHPUnit\Framework\TestCase
     {
         parent::setUpBeforeClass();
 
-        vfsStream::setup('tmp');
+        vfsstream::setup('tmp');
     }
 
     /**
@@ -113,7 +113,7 @@ OUT;
      */
     public function testPush($documents, $expectedOutput)
     {
-        $filename = vfsStream::url('tmp/test.json');
+        $filename = vfsstream::url('tmp/test.json');
 
         $writer = new JsonWriter($filename, count($documents));
 
@@ -133,7 +133,7 @@ OUT;
      */
     public function testPushException()
     {
-        $filename = vfsStream::url('tmp/test.json');
+        $filename = vfsstream::url('tmp/test.json');
 
         $writer = new JsonWriter($filename, 0);
         $writer->push(null);
